@@ -1,0 +1,7 @@
+<titulo [icone]="icone" [titulo]="titulo"></titulo>
+
+<btn-voltar [link]="linkRetorno"></btn-voltar>
+
+<painel-dados [cards]="cards" [totalPagina]="totalPagina" [paginaAtual]="paginaAtual"
+    [opcoesQtdPorPagina]="opcoesQtdPorPagina" [opcaoInicialEscolhida]="quantidadeEscolhida"
+        (trocarPagina)="onTrocarPagina($event)" (trocarQuantidade)="onTrocarQuantidade($event)"></painel-dados>

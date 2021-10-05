@@ -1,0 +1,36 @@
+<div class="row mt-4">
+
+    <div class="col-12 col-md-2 col-xl-1">
+
+        <select id="size" class="form-select form-select-sm" (change)="onChange($event.target)">
+            <ng-container *ngFor="let op of opcoesQtdPorPagina">
+                <ng-container *ngIf="opcaoInicialEscolhida == op">
+                    <option [value]="op" selected>{{op}}</option>
+                </ng-container>
+                <ng-container *ngIf="opcaoInicialEscolhida != op">
+                    <option [value]="op">{{op}}</option>
+                </ng-container>
+            </ng-container>
+        </select>
+
+    </div>
+
+    <div class="col-12 col-md-10 col-xl-11 mt-2 mt-md-0">
+
+        <p class="text-center">
+
+            <span *ngIf="paginaAtual > 0" class="me-1">
+                <a (click)="onAnterior()" class="btn btn-sm btn-outline-secondary"><i class="fas fa-caret-left fx-3"></i></a>
+            </span>
+        
+            <span>{{paginaAtual+1}} de {{totalPagina}}</span>
+        
+            <span *ngIf="(paginaAtual+1) < totalPagina" class="ms-1">
+                <a (click)="onProximo()" class="btn btn-sm btn-outline-secondary"><i class="fas fa-caret-right"></i></a>
+            </span>
+        
+        </p>
+
+    </div>
+
+</div>

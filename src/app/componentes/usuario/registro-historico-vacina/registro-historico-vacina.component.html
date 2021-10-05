@@ -1,0 +1,48 @@
+<titulo [icone]="icone" [titulo]="titulo"></titulo>
+
+<btn-voltar [link]="linkRetorno"></btn-voltar>
+
+<div class="row justify-content-center"> 
+
+    <div class="col-12 col-sm-7 col-md-5 col-lg-4 col-xl-3 mt-4">
+
+        <form [formGroup]="formRegistroHistorico" (ngSubmit)="registrar()" >
+
+            <label for="campanha">Campanha:</label>
+            <select name="campanha" id="campanha" class="form-control" formControlName="campanha">
+                <ng-container *ngFor="let c of campanhas">
+                    <option [value]="c.vacina.idVacina">{{c.titulo}}</option>
+                </ng-container>
+            </select>
+
+            <label for="posto" class="mt-2">Posto:</label>
+            <select name="posto" id="posto" class="form-control" formControlName="posto">
+                <ng-container *ngFor="let p of postos">
+                    <option [value]="p.idPosto">{{p.nome}}</option>
+                </ng-container>
+            </select>
+
+            <div class="row mt-2">
+
+                <div class="col-6">
+                    <label for="data">Data:</label>
+                    <input type="date" class="form-control" formControlName="data">
+                </div>
+
+                <div class="col-6">
+                    <label for="hora">Hora:</label>
+                    <input type="time" class="form-control" formControlName="hora">
+                </div>
+
+            </div>
+
+            <label for="comentario" class="mt-2">Comentário:</label>
+            <textarea cols="6" rows="8" class="form-control" formControlName="comentario"></textarea>
+
+            <button [disabled]="formRegistroHistorico.invalid" type="submit" class="btn btn-primary mt-3"><i class="fas fa-check me-1"></i>Registrar</button>
+
+        </form>
+
+    </div>
+
+</div>

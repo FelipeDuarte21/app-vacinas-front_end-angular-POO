@@ -1,0 +1,34 @@
+<div class="row mt-2">
+
+    <div class="col-12 col-md-6 col-xl-4 col-xxl-3 mb-3" *ngFor="let card of cards">
+
+        <div class="card">
+
+            <div class="card-body">
+
+                <ng-container *ngFor="let campo of card.campos; let i=index">
+                    <h6 class="mb-0 fw-bolder" [ngClass]="{'mt-3': i != 0}">
+                        <i class="fas" [class]="campo?.icone"></i>{{campo?.titulo}}:
+                    </h6>
+                    <span class="mt-0">{{campo?.valor}}</span>
+                </ng-container>
+
+                <ng-container *ngIf="card.botoes.length != 0">
+                    <div class="row mt-3">
+                        <ng-container *ngFor="let botao of card.botoes">
+                            <div class="col">
+                                <a [routerLink]="botao.link.valor" [queryParams]="botao.link.parametros | parametros" class="btn btn-primary">
+                                    <i class="fas me-1" [class]="botao.icone"></i>{{botao.titulo}}
+                                </a>
+                            </div>
+                        </ng-container>
+                    </div>
+                </ng-container>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

@@ -1,0 +1,22 @@
+<titulo [icone]="icone" [titulo]="titulo"></titulo>
+
+<btn-voltar [link]="linkRetorno"></btn-voltar>
+
+<div class="alert alert-danger text-center mt-4" *ngIf="comentarios.length == 0"><i class="far fa-frown me-1"></i>Nenhum Comentário Encontrado!</div>
+
+<div class="mt-5" *ngFor="let comentario of comentarios">
+
+    <div class="row">
+        <div class="col-12 col-sm-6 fw-bolder">
+            <span><i class="fas fa-user me-1"></i>{{comentario?.usuario}}</span>
+        </div>
+        <div class="col-12 col-sm-6 text-start text-sm-end fst-italic">
+            <span><i class="fas fa-calendar-alt me-1"></i>{{comentario.dataHora | formataDataHora}}</span>
+        </div>
+    </div>
+
+    <p class="mt-1 text-justify">{{comentario?.comentario}}</p>
+
+    <hr>
+
+</div>

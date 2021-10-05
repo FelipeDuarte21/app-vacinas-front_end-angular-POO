@@ -1,0 +1,44 @@
+<titulo [icone]="icone" [titulo]="titulo"></titulo>
+
+<btn-voltar [link]="linkRetorno"></btn-voltar>
+
+<div class="row justify-content-center">
+
+    <div class="col-12 col-sm-7 col-md-5 col-lg-4 col-xl-3 mt-4">
+
+        <form>
+
+            <label for="estado" class="">Estado:</label>
+            <select name="estado" id="estado" #estado class="form-control" (change)="buscarCidades(estado.value)">
+                <option value="0" selected>Escolha Um Estado</option>
+                <ng-container *ngFor="let estado of estados">
+                    <option [value]="estado">{{estado}}</option>
+                </ng-container>
+            </select>
+        
+            <label for="cidade" class="mt-4">Cidade:</label>
+            <select name="cidade" id="cidade" #cidade class="form-control" (change)="buscarBairros(cidade.value)"
+                [disabled]="cidades.length==0">
+                <option value="0">Escolha Uma Cidade</option>
+                <ng-container *ngFor="let cidade of cidades">
+                    <option [value]="cidade">{{cidade}}</option>
+                </ng-container>
+            </select>
+        
+            <label for="bairro" class="mt-4">Bairro:</label>
+            <select name="bairro" id="bairro" #bairro class="form-control" (change)="setBairro(bairro.value)"
+                [disabled]="bairros.length==0" >
+                <option value="0">Escolha Um Bairro</option>
+                <ng-container *ngFor="let bairro of bairros">
+                    <option [value]="bairro">{{bairro}}</option>
+                </ng-container>
+            </select>
+        
+            <button type="submit" [disabled]="!habilitarPesquisa()" class="btn btn-primary mt-4"
+                (click)="pesquisar()"><i class="fas fa-search me-1"></i>Pesquisar</button>
+        
+        </form>
+
+    </div>
+
+</div>

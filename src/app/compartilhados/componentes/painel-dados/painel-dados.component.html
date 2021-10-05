@@ -1,0 +1,9 @@
+<div class="alert alert-danger text-center mt-4" *ngIf="cards.length == 0"><i class="far fa-frown me-1"></i>Nenhum Registro Encontrado!</div>
+
+<ng-container *ngIf="cards.length != 0">
+    <paginacao [totalPagina]="totalPagina" [paginaAtual]="paginaAtual" 
+        [opcoesQtdPorPagina]="opcoesQtdPorPagina" [opcaoInicialEscolhida]="opcaoInicialEscolhida"
+            (trocarPagina)="onTrocarPagina($event)" (trocarQuantidade)="onTrocarQuantidade($event)"></paginacao>
+    
+    <painel-card [cards]="cards"></painel-card>
+</ng-container>
