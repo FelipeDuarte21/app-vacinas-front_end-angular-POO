@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiURL: "/"
+  apiURL: "https://app-vacinas-api.herokuapp.com/"
 };
